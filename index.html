@@ -1,18 +1,148 @@
-<!doctype html>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
   <meta charset="utf-8">
-
-  <title>KCSS</title>
-  <meta name="title" content="KCSS">
-  <meta name="description" content="An Active Gaming Community With 250+ Members. Join Us Today!">
-  <meta name="author" content="rpxs">
-
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KCSS Site Launch</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
-  <script src="js/main.js"></script>
-<h1>Site Under Maintenance</h1>
+  <div class="everythingParent">
+    <div class="everything">
+      <h1 class="title is-size-1 has-text-white" id="countdown">
+      </h1>
+      <div class="progressParent" style="opacity: 0">
+        <progress class="progress" value="0" max="100"></progress>
+        <div class="breaker"></div>
+        <div class="percent">0.0%</div>
+      </div>
+    </div>
+  </div>
 </body>
+
+<script>
+  const start = 1607019420000;
+  const end = 1608246000000;
+  const tick = (first) => {
+    let diff = ((end - Date.now()) / 1000);
+    if (first) diff -= 4;
+    const DAY = 24 * 60 * 60;
+    const HOUR = 60 * 60;
+    const MIN = 60;
+    const SEC = 1;
+
+    const days = Math.floor(diff / DAY);
+    const hours = Math.floor((diff % DAY) / HOUR);
+    const mins = Math.floor((diff % HOUR) / MIN);
+    const secks = Math.floor((diff % MIN));
+
+    if (first) {
+      document.querySelector('h1').innerHTML = `<span class="timeAnim0">${days} days.</span> <span class="timeAnim1">${hours} hours.</span> <span class="timeAnim2">${mins} minutes.</span> <span class="timeAnim3">${secks} seconds.</span>`;
+    } else {
+      document.querySelector('h1').innerHTML = `${days} days. ${hours} hours. ${mins} minutes. ${secks} seconds.`;
+    }
+
+  };
+  tick(true);
+  setTimeout(() => setInterval(tick, 1000), 4000);
+
+  const targetPercentage = (1 - ((end - Date.now()) / (end - start))) * 100;
+  (async () => {
+    await new Promise(r => setTimeout(r, 4000));
+    document.querySelector('.progressParent').style = `animation: fadein 2s forwards;`;
+    await new Promise(r => setTimeout(r, 1500));
+    for (let percentage = 0; percentage < targetPercentage; percentage += 0.175 * Math.max(0.1, percentage / targetPercentage)) {
+      document.querySelector('.progressParent .percent').innerHTML = percentage.toFixed(1) + '%';
+      document.querySelector('progress').setAttribute('value', percentage);
+      await new Promise(r => setTimeout(r, 1));
+    }
+
+  })();
+</script>
+<style>
+  @keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+  [class*="timeAnim"] {
+    opacity: 0;
+    animation: fadein 2s forwards;
+    animation-iteration-count: 1;
+  }
+  .timeAnim0 {
+    animation-delay: 0s;
+  }
+  .timeAnim1 {
+    animation-delay: 1.25s;
+  }
+  .timeAnim2 {
+    animation-delay: 2.5s;
+  }
+  .timeAnim3 {
+    animation-delay: 3.75s;
+  }
+
+  #countdown {
+    padding-top: 5vh;
+    text-align: center;
+    font-size: 4vw !important;
+    flex-basis: 100%;
+  }
+
+  .everythingParent {
+    height: 100vh;
+    position: relative;
+  }
+
+  .everything {
+    position: absolute;
+    top: 50% !important;
+    transform: translateY(-75%);
+    width: 100vw;
+  }
+
+  .progressParent {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progressParent progress {
+    display: flex;
+    flex-basis: 80%;
+  }
+
+  .progressParent .breaker {
+    flex-basis: 100%;
+  }
+
+  .progressParent .percent {
+    font-size: 5vw;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: #2186eb !important;
+  }
+  body {
+    background: #0d0e0f;
+    color: #e5e5e5 !important;
+  }
+
+  body,
+  html {
+    text-rendering: optimizeLegibility;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+</html>
