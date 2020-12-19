@@ -1,5 +1,5 @@
 [[redirects]]
 # KCSS Profiles
   from = "https://kcss.tk/p/*"
-  to = "kcss.tk/p/:splat.html"
+  to = "kcss.tk/p/:splat .html"
   status = 301
