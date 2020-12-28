@@ -1,0 +1,33 @@
+body {
+  background-color: #13111a;
+}
+
+.profile {
+  border: 1px solid black;
+  background-color: #16151d;
+  width: 600px;
+  height: 270px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2%;
+}
+
+#pTitle {
+  font-family: "Staatliches", cursive;
+  font-size: 30px;
+  color: rgb(131, 146, 175);
+}
+
+#pImg {
+  position: relative;
+  float: right;
+  bottom: 11.5%;
+  border-radius: 50%;
+}
+
+#pInfo {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(131, 146, 175);
+}
