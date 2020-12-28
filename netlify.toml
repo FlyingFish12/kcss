@@ -1,5 +1,11 @@
 [[redirects]]
 # KCSS Profiles
-  from = "https://kcss.tk/p/*"
-  to = "kcss.tk/p/:splat .html"
+  from = "https://kcss.tk/p/killer21"
+  to = "kcss.tk/p/killer21.html"
+  status = 301
+
+[[redirects]]
+# KCSS Profiles
+  from = "https://kcss.tk/p/Killer21"
+  to = "kcss.tk/p/killer21.html"
   status = 301
