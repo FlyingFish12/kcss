@@ -6,38 +6,25 @@
     <title>KCSS</title>
   </head>
   <body>
-<form name="newProfile" >
-  <p>
-    <label>Your Discord Username<input type="text" name="dTag"/></label>
-  </p>
-  <p>
-    <label>Vanity URL You Want<input type="text" name="url" /></label>
-  </p>
-<p>
-  <label>Bio To Display<input type="text" name="bio" /></label>
-  </p>
-  <p>
-    <button type="submit" onclick="sendMessage()">Send</button>
-  </p>
-</form>
+    <button onclick="sendMessage()">Send</button>
   </body>
 
   <script>
     function sendMessage() {
-const dTag = document.querySelectpr("dTag").value
-const url = document.querySelector("url").value
-const bio = document.querySelector("bio").value
-      const request = new XMLHttpRequest();
-      request.open("POST", "https://discordapp.com/api/webhooks/676118118082281513/ZS5YcWhurzokBrKX9NgexqtxrJA5Pu2Bo4i7_JsIxC-JIbPBVhSZkcVVukGOro52rnQA");
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://discordapp.com/api/webhooks/793271937098973185/y92AcRcWv0ixKMTeBgiJ0MGJHN_Hqvf85M17uu9Gu_eBAlSeXLmcciv2_fwkq8AkvSeO
+");
 
-      request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader('Content-type', 'application/json');
 
-      const params = {
-        username: "KCSS Profiler",
-        content: {dTag, url, bio}
+      var params = {
+        username: "My Webhook Name",
+        avatar_url: "",
+        content: "The message to send"
       }
 
       request.send(JSON.stringify(params));
     }
   </script>
+
 </html>
