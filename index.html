@@ -1,19 +1,43 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCSS</title>
+  </head>
+  <body>
+<form name="newProfile">
+  <p>
+    <label>Your Discord Username<input type="text" name="dTag" /></label>
+  </p>
+  <p>
+    <label>Vanity URL You Want<input type="text" name="url" /></label>
+  </p>
+<p>
+  <label>Bio To Display<imput type type="text" name="bio" /></label>
+  </p>
+  <p>
+    <button type="submit" onclick="sendMessage()">Send</button>
+  </p>
+</form>
+  </body>
 
-  <title>KCSS</title>
-  <meta name="title" content="KCSS">
-  <meta name="description" content="An Active Gaming Community With 250+ Members. Join Us Today!">
-  <meta name="author" content="rpxs">
+  <script>
+    function sendMessage() {
+const dTag = document.querySelector("dTag").value
+const url = document.querySelector("url").value
+const bio = document.querySelector("bio").value
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discordapp.com/api/webhooks/676118118082281513/ZS5YcWhurzokBrKX9NgexqtxrJA5Pu2Bo4i7_JsIxC-JIbPBVhSZkcVVukGOro52rnQA");
 
-  <link rel="stylesheet" href="css/style.css">
-</head>
+      request.setRequestHeader('Content-type', 'application/json');
 
-<body>
-  <script src="js/main.js"></script>
-<h1>Site Under Maintenance</h1>
-</body>
-  
+      const params = {
+        username: "KCSS Profiler",
+        content: {dTag, url, bio}
+      }
+
+      request.send(JSON.stringify(params));
+    }
+  </script>
+</html>
