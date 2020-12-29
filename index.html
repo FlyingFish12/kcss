@@ -1,40 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KCSS</title>
   </head>
   <body>
-   <form name="profiler">
-  <p>
-    <label>Discord Tag<input type="text" name="tag" id="myTag"/></label>
-  </p>
-  <p>
-    <label>Bio To Display<input type="text" name="bio" id="myBio"/></label>
-  </p>
-  <p>
-    <label>url<input type="text" name="url" id="myUrl"/></label>
-  </p>
-  <p>
-    <button type="submit" onclick="sendMessage()">Send</button>
-  </p>
-</form>
+    <form name="profiler">
+      <p>
+        <label
+          >Discord Tag (Example: fish#1342 or Dorfnox#9699):<input
+            type="text"
+            name="tag"
+            id="myTag"
+        /></label>
+      </p>
+      <p>
+        <label
+          >Bio To Display On Profile:<input type="text" name="bio" id="myBio"
+        /></label>
+      </p>
+      <p>
+        <label
+          >Vanity URL: kcss.tk/p/<input type="text" name="url" id="myUrl"
+        /></label>
+      </p>
+      <p>
+        <button type="submit" onclick="sendMessage()">Send</button>
+      </p>
+    </form>
   </body>
 
   <script>
     function sendMessage() {
-const tag = document.querySelector 
-      var request = new XMLHttpRequest();
-      request.open("POST", "https://discord.com/api/v8/webhooks/793271937098973185/y92AcRcWv0ixKMTeBgiJ0MGJHN_Hqvf85M17uu9Gu_eBAlSeXLmcciv2_fwkq8AkvSeO?wait=true");
+      const tag = document.getElementById("myTag").value;
+      const bio = document.getElementById("myBio").value;
+      const url = document.getElementById("myUrl").value;
+      const request = new XMLHttpRequest();
+      request.open(
+        "POST",
+        "https://discord.com/api/v8/webhooks/793271937098973185/y92AcRcWv0ixKMTeBgiJ0MGJHN_Hqvf85M17uu9Gu_eBAlSeXLmcciv2_fwkq8AkvSeO?wait=true"
+      );
 
-      request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader("Content-Type", "application/json");
+      function hexToDecimal(hex) {
+        return parseInt(hex.replace("#", ""), 16);
+      }
 
+      var embed = {
+        title: `Discord Tag: ${tag}`,
+        description: `Bio: ${bio}`,
+        footer: {
+          text: `Vanity URL: ${url}`,
+        },
+      };
       var params = {
         username: "KCSS Profiler",
         avatar_url: "",
-        content: 
-      }
+        embeds: [embed],
+      };
 
       request.send(JSON.stringify(params));
     }
