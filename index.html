@@ -6,25 +6,37 @@
     <title>KCSS</title>
   </head>
   <body>
-    <button onclick="sendMessage()">Send</button>
+   <form name="profiler">
+  <p>
+    <label>Discord Tag<input type="text" name="tag" id="myTag"/></label>
+  </p>
+  <p>
+    <label>Bio To Display<input type="text" name="bio" id="myBio"/></label>
+  </p>
+  <p>
+    <label>url<input type="text" name="url" id="myUrl"/></label>
+  </p>
+  <p>
+    <button type="submit" onclick="sendMessage()">Send</button>
+  </p>
+</form>
   </body>
 
   <script>
     function sendMessage() {
+const tag = document.querySelector 
       var request = new XMLHttpRequest();
-      request.open("POST", "https://discordapp.com/api/webhooks/793271937098973185/y92AcRcWv0ixKMTeBgiJ0MGJHN_Hqvf85M17uu9Gu_eBAlSeXLmcciv2_fwkq8AkvSeO
-");
+      request.open("POST", "https://discord.com/api/v8/webhooks/793271937098973185/y92AcRcWv0ixKMTeBgiJ0MGJHN_Hqvf85M17uu9Gu_eBAlSeXLmcciv2_fwkq8AkvSeO?wait=true");
 
-      request.setRequestHeader('Content-type', 'application/json');
+      request.setRequestHeader('Content-Type', 'application/json');
 
       var params = {
-        username: "My Webhook Name",
+        username: "KCSS Profiler",
         avatar_url: "",
-        content: "The message to send"
+        content: 
       }
 
       request.send(JSON.stringify(params));
     }
   </script>
-
 </html>
