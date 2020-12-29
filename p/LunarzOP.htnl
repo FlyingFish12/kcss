@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>KCSS</title>
+    <meta name="title" content="KCSS Profiles" />
+    <meta name="description" content="Profile for Lunarz" />
+    <meta name="author" content="rpxs" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <script src="js/main.js"></script>
+    <div class="all">
+      <div class="profile">
+        <div id="pTitle">Lunarz</div>
+        <img
+          id="pImg"
+          src="https://cdn.discordapp.com/avatars/434745808265543692/3e8f6a4d431cec81ecf3bd15f2eb60b9.webp?size=1024"
+        />
+        <div id="pInfo">
+OG Gats player who loves games :) (I take grades seriously).
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
