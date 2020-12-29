@@ -42,5 +42,13 @@ body {
 }
 
 .clanBadge:hover {
-  filter: drop-shadow(0 0 0.9rem crimson);
+  filter: drop-shadow(0 0 0.9rem rgb(36, 182, 17));
+}
+
+.ghBadge {
+  width: 25px;
+}
+
+.ghBadge:hover {
+  filter: drop-shadow(0 0 0.9rem rgb(196, 10, 91));
 }
