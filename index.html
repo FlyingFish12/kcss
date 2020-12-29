@@ -8,13 +8,13 @@
   <body>
 <form name="newProfile">
   <p>
-    <label>Your Discord Username<input type="text" name="dTag" /></label>
+    <label>Your Discord Username<input type="text" name="dTag" id="myTag" /></label>
   </p>
   <p>
-    <label>Vanity URL You Want<input type="text" name="url" /></label>
+    <label>Vanity URL You Want<input type="text" name="url" id="myUrl" /></label>
   </p>
 <p>
-  <label>Bio To Display<input type="text" name="bio" /></label>
+  <label>Bio To Display<input type="text" name="bio" id="myBio"/></label>
   </p>
   <p>
     <button type="submit" onclick="sendMessage()">Send</button>
@@ -24,9 +24,9 @@
 
   <script>
     function sendMessage() {
-const dTag = document.querySelector("dTag").value
-const url = document.querySelector("url").value
-const bio = document.querySelector("bio").value
+const dTag = document.getElementById("myTag").value
+const url = document.getElementById("myUrl").value
+const bio = document.getElementById("myBio").value
       const request = new XMLHttpRequest();
       request.open("POST", "https://discordapp.com/api/webhooks/676118118082281513/ZS5YcWhurzokBrKX9NgexqtxrJA5Pu2Bo4i7_JsIxC-JIbPBVhSZkcVVukGOro52rnQA");
 
